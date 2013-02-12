@@ -1,0 +1,38 @@
+p{
+	margin:0px 0px 10px 0px;
+	padding:0px;
+}
+
+#pallet{
+	margin:0px;
+	padding:0px;
+	position:absolute;
+	top:0;
+	left:0;
+	height:100%;
+	width:100%;
+}
+
+#pallet li{
+ list-style: none;
+ list-style-image: none;
+ display: block;
+ height:100%;
+ width:25%;
+ float:left;
+}
+
+#info{
+	padding:10px;
+	position: absolute;
+	top:10%;
+	left:20%;
+	width:60%;
+	border-radius: 10px;
+	background-color: rgba(255,255,255,0.7);
+	text-align: center;
+}
+
+#ip{
+	font-size:32px;
+}
