@@ -2,24 +2,49 @@
 <head>
 	<meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>IP Pallet</title>
+  <title>Pretty IP - By Strange</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/main.css">
   <script src="js/modernizr-2.6.2.min.js"></script>
+
 </head>
 <body>
-
+  <div id="fb-root"></div>
 	<ul id="pallet">
 	</ul>
 
-	<section id="info">
-	  <p>Your IP Address is...</p>
-	  <p id="ip">Wait for it...</p>
-	  <p>Based on the numbers in your IP we've create this lovely colour pallet for you enjoyment!</p>
-		<p>Made by <a href="http://www.meetstrange.com">Strange</a> in London</p>
-	</section>
+	<table id="ip-container">
+  	<tr>
+  		<td>
+  			<div class="bg">
+  			<p>Your IP Address is</p>
+  			<p id="ip">Wait for it...</p>
+  		  </div>
+     	</td>
+  	</tr>
+	</table>
+
+  <div id="footer-container">
+  <footer>
+  	<div class="description">
+  	<p>Based on the numbers in your IP we've create this lovely colour pallet for you to enjoy!</p>
+    </div>
+    <div class="logo">
+      <a href="http://meetstrange.com"><img src="img/logo.png" /></a>
+    </div>
+    <div class="social">
+     
+    <div class="tweet"><a href="https://twitter.com/intent/tweet?button_hashtag=PrettyIP&text=What%20colour%20is%20your%20IP%3F" class="twitter-hashtag-button" data-url="http://prettyip.meetstrange.com">Tweet #PrettyIP</a></div>
+      
+    <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+     <div class="fb-like" data-href="http://prettyip.meetstrange.com" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false" data-font="arial" data-colorscheme="dark"></div>
+    </div>
+  </footer>
+  </div>
 
   <!-- scripts -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -28,13 +53,32 @@
 	<script>
 	window.d3 || document.write('<script src="js/d3.v3.min.js"><\/script>')</script>
   <script src="js/main.js"></script>
-  <!-- 
-  <script>
-  	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
-  </script>-->
+  
+ 
+
+  <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_GB/all.js#xfbml=1&appId=437227549679574";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+  
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-37834457-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</script>
 </body>
 </html>
 

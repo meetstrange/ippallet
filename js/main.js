@@ -7,15 +7,47 @@ var draw = function(ip) {
 };
 
 // get the ip address
-$.get(ip_api,function(data){ 
-  draw(data.ip); 
-}).error(function() { 
-  draw("<span style='color:red;'>We can't find it... Sorry!</span>"); 
+$(document).ready(function(){
+  $.get(ip_api,function(data){ 
+    var ips = data.ip.split(',');
+    var ip = ips[0];
+    if(ips.length>1){
+      var total1 = eval(ips[0].split('.').join('+'));
+      var total2 = eval(ips[1].split('.').join('+'));
+      if(total2>total1){
+        ip = ips[1];
+      }
+    }
+    draw(ip); 
+  }).error(function() { 
+    draw("<span style='color:red;'>We can't find it... Sorry!</span>"); 
+  });
 });
+
+var getHexForColor = function(rgb, k){
+  var hsl = rgb.hsl();
+  var newHsl = hsl.darker(k);
+  console.log(hsl.l);
+  if(hsl.l<=0.5){
+    newHsl = hsl.brighter(k);
+  }
+  return newHsl.rgb().toString();
+}
 
 // utility to append a color to the pallet
 var bc = function($el, colour_name, rgb) {
-  $el.append('<li id="'+colour_name+'" style="background-color:rgb('+rgb.r+','+rgb.g+','+rgb.b+');"></li>');
+
+  palletColorStr = rgb.toString();
+  labelColorStr = getHexForColor(rgb, 1.6);
+
+  labelColorStyle='style="color:'+labelColorStr+';"';
+  palletColorStyle='style="background-color:'+palletColorStr+'"';
+
+  nameHtml ='<span class="name">'+colour_name+'</span>';
+  hexHtml = '<span class="hex">Hex: '+palletColorStr+'</span>';
+  rgbHtml = '<span class="rgb">RGB: '+rgb.r+','+rgb.g+','+rgb.b+'</span>';
+  labelHtml = '<div class="label" '+labelColorStyle+'>'+nameHtml+hexHtml+rgbHtml+'</div>';
+  $el.append('<li id="'+colour_name+'" '+palletColorStyle+'>'+labelHtml+'</li>');
 };
 
 // set the primary, and all other colours (triads, etc)
@@ -27,15 +59,14 @@ var all = function(id, rgb) {
   var comp = d3.hsl(d3hsl.h - 180, d3hsl.s, d3hsl.l);
   bc($el, 'Complementary', comp.rgb());
   var triad1 = d3.hsl(d3hsl.h - 120, d3hsl.s, d3hsl.l);
-  bc($el, 'Triad1', triad1.rgb());
+  bc($el, 'Triad 1', triad1.rgb());
   var triad2 = d3.hsl(d3hsl.h - 240, d3hsl.s, d3hsl.l);
-  bc($el, 'Triad2', triad2.rgb());
+  bc($el, 'Triad 2', triad2.rgb());;
 };
 
 // Algo 'genesis': the first, second and third numbers of the IP address
 var a_genesis = function(ip) {
   var rgb = ip.split('.');
-  console.log(rgb);
   all("Genesis", rgb);
 };
 
