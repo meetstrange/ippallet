@@ -9,6 +9,10 @@ var draw = function(ip) {
 // get the ip address
 $(document).ready(function(){
   $.get(ip_api,function(data){ 
+    console.log(typeof(data));
+    if(typeof(data) != "object"){
+      data = JSON.parse(data);
+    }
     var ips = data.ip.split(',');
     var ip = ips[0];
     if(ips.length>1){
@@ -27,7 +31,6 @@ $(document).ready(function(){
 var getHexForColor = function(rgb, k){
   var hsl = rgb.hsl();
   var newHsl = hsl.darker(k);
-  console.log(hsl.l);
   if(hsl.l<=0.5){
     newHsl = hsl.brighter(k);
   }
