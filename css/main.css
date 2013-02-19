@@ -141,7 +141,65 @@ footer img{
 	float: right;
 }
 
+.popup-container{
+	position:relative;
+}
+
+.popup{
+	display:none;
+	position:absolute;
+	top:-80px;
+	left:0px;
+	height:60px;
+	width:100px;
+	padding:10px;
+	color:white;
+	text-align: center;
+}
+
+.popup a{
+	display:block;
+	margin-top:5px;
+}
+
+.arrow_box {
+	background-color:rgb(35,31,32);
+	background-color:rgba(35,31,32,1);
+	border: 2px solid #d9d9d9;
+	border-color:rgba(250,250,250,.8);
+	-webkit-border-radius:3px;
+}
+
+.arrow_box:after, .arrow_box:before {
+	top: 100%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(35, 31, 32, 0);
+	border-top-color: #231f20;
+	border-width: 10px;
+	left: 50%;
+	margin-left: -10px;
+}
+.arrow_box:before {
+	border-color: rgba(217, 217, 217, 0);
+	border-top-color: #d9d9d9;
+	border-width: 13px;
+	left: 50%;
+	margin-left: -13px;
+}
+
 @media screen and (max-width :959px){
+
+	.nomobile{
+		display: none;
+	}
 
 	#pallet .label .name{
 		font-size:14px;
